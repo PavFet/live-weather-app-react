@@ -1,0 +1,85 @@
+@keyframes openList {
+	0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 700px;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.input__block {
+  position: relative;
+  height: 40px;
+  display: flex;
+  width: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
+
+.input__block input{
+  height: 100%;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding-left: 10px;
+
+}
+
+.input__block input::placeholder {
+  text-align: center;
+}
+
+.input__block button{
+  height: 38px;
+  transform: scaleY(-1) scaleX(-1);
+  font-size: 40px;
+  width: 40px;
+  background: rgb(87, 80, 188);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.input__block input, textarea {
+  outline: none;
+}
+
+
+.suggestion__list {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: calc(100% - 40px);
+  background-color: rgb(87, 73, 240);
+  z-index: 100;
+  animation: openList 1s ease-out;
+
+}
+
+.suggestion__list li {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: left;
+  margin-left: 9px;
+  padding-bottom: 2px;
+}
+

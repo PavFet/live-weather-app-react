@@ -1,0 +1,14 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+#root {
+  background: rgb(144,186,189);
+  background: linear-gradient(298deg, rgba(144,186,189,1) 0%, rgba(50,71,98,1) 0%, rgba(36,55,85,1) 33%, rgba(90,108,207,1) 100%);
+  padding: 30px 20px;
+  min-height: 100vh;
+}
