@@ -12,6 +12,12 @@ import citiesDb from 'cities.json'
 
 
 const Header = () => {
+  const disp = useDispatch()
+
+  
+  
+
+
   const city = useSelector((state) => state.city.currentCity)
   const [inputValue, setInputValue] = React.useState('');
   const [suggestions, setSuggestions] = React.useState([]);
@@ -38,7 +44,6 @@ const Header = () => {
   fetch.useData(city)
 
 
-  const disp = useDispatch()
   const error = useSelector((state) => state.city.fetchError)
 
   const cityRef = React.useRef(null)

@@ -257,12 +257,16 @@
 	}
 }
 
-.display__none {
+.display__none__with__anim {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   animation: myAnimClose 2s ease 0s 1 normal forwards;
+}
+
+.display__none {
+  display: none;
 }
 
 
@@ -274,6 +278,16 @@
   justify-content: space-around;
   align-items: center;
   color: white;
+}
+
+.forecast__date {
+
+  color: white;
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+
+  animation: myAnimOpen 2s ease 0s 1 normal forwards;
 }
 
 .forecast__condition img{
