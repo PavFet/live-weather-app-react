@@ -17,13 +17,14 @@ const MainSection = () => {
 
 
   const forecast = useSelector((state) => state.city.fetchDataForecast)
+ 
   const { current, location } = useSelector((state) => state.city.fetchDataCurrent)
   const { lat, lon } = useSelector((state) => state.city.coordination)
-  
+ 
   const toggleList = () => setIsOpen(!isOpen)
   const time = useSelector((state) => state.city.realTime)
 
-  fetch.useTime(lat, lon, location)
+  fetch.useTime(lat, lon, lat)
 
   const hours = time.slice(-8, -3)
 
@@ -31,6 +32,9 @@ const MainSection = () => {
     const res = val * 1000 / 3600
     return res.toFixed(1)
   }
+
+
+ 
 
   return (
     <>
@@ -130,12 +134,9 @@ const MainSection = () => {
             <button onClick={toggleList}>{isOpen ? 'LESS' : 'MORE'}</button>
           </div>
         </>
-
-
       }
 
-
-      {forecast.forecastday !== undefined && forecast !== undefined ? <div className={isOpen ? 'forecast__list' : 'display__none'}>
+      {forecast.forecastday !== undefined && forecast !== undefined ? <div className={isOpen ? 'forecast__list' : 'display__none__with__anim'}>
         {forecast.forecastday[0].hour
           .filter((item) => {
             const time = item.time.slice(-5, -3);
@@ -150,6 +151,41 @@ const MainSection = () => {
             humidity={x.humidity}
           />)}
       </div> :
+        ''
+      }
+        {forecast.forecastday !== undefined && forecast !== undefined ? 
+          <div>
+            <span className={isOpen ? 'forecast__date' : 'display__none'}>{forecast.forecastday[1].date}</span>
+           <div className={isOpen ? 'forecast__list' : 'display__none__with__anim'}>
+            {forecast.forecastday[1].hour
+              .map(x => <SingleForecast
+                key={x.time_epoch}
+                time={x.time.slice(-5)}
+                condition={x.condition}
+                temperature={x.temp_c}
+                wind={meterToSecond(x.wind_kph)}
+                humidity={x.humidity}
+              />)}
+            </div> 
+           </div>:
+        ''
+      }
+
+{forecast.forecastday !== undefined && forecast !== undefined ? 
+          <div>
+            <span className={isOpen ? 'forecast__date' : 'display__none'}>{forecast.forecastday[2].date}</span>
+           <div className={isOpen ? 'forecast__list' : 'display__none__with__anim'}>
+            {forecast.forecastday[2].hour
+              .map(x => <SingleForecast
+                key={x.time_epoch}
+                time={x.time.slice(-5)}
+                condition={x.condition}
+                temperature={x.temp_c}
+                wind={meterToSecond(x.wind_kph)}
+                humidity={x.humidity}
+              />)}
+            </div> 
+           </div>:
         ''
       }
 

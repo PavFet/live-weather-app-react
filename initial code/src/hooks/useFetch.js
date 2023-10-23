@@ -23,9 +23,9 @@ const useData = (city) => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey.forecast}&q=${city}`)
+        const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey.forecast}&q=${city}&days=3`)
         const json = await res.json();
-
+        console.log(json)
         disp(setDataCurrent({
           data: json
         }))
